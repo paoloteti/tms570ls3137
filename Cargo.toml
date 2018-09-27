@@ -1,0 +1,32 @@
+[package]
+name = "tms570ls3137"
+version = "0.1.0"
+authors = ["Paolo Teti <paolo.teti@gmail.com>"]
+description = "Example project for TI Cortex-R4F/R5F TMS570LS3137"
+build = "build.rs"
+
+[profile.dev]
+panic = "abort"
+incremental = false
+lto = true
+opt-level = 1
+debug = true
+debug-assertions = true
+
+[profile.release]
+panic = "abort"
+incremental = false
+lto = true
+codegen-units = 1
+debug = false
+debug-assertions = false
+
+[dependencies]
+tms570 = { git = "https://github.com/paoloteti/i-hercules-bsp.git" }
+f021_fapi = { git = "https://github.com/paoloteti/f021-flash-api.git" }
+panic_impl = { path = "crates/panic_impl" }
+
+[dependencies.linked_list_allocator]
+default-features = true
+version = "0.6.3"
+

@@ -1,0 +1,20 @@
+[build]
+target = "armebv7r-none-eabihf"
+
+[target.armebv7r-none-eabihf]
+rustflags = [
+    "-C", "linker=arm-none-eabi-gcc",
+    "-C", "link-arg=-Ttms570ls31xx.ld",
+    "-C", "link-arg=-nostartfiles",
+    "-C", "link-arg=-mbig-endian",
+    "-C", "target-cpu=cortex-r4",
+]
+
+[target.armebv7r-none-eabi]
+rustflags = [
+    "-C", "linker=arm-none-eabi-gcc",
+    "-C", "link-arg=-Ttms570ls31xx.ld",
+    "-C", "link-arg=-nostartfiles",
+    "-C", "link-arg=-mbig-endian",
+    "-C", "target-cpu=cortex-r4",
+]
