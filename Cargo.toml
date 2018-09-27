@@ -22,7 +22,7 @@ debug = false
 debug-assertions = false
 
 [dependencies]
-tms570 = { git = "https://github.com/paoloteti/i-hercules-bsp.git" }
+tms570 = { git = "https://github.com/paoloteti/ti-hercules-bsp.git" }
 f021_fapi = { git = "https://github.com/paoloteti/f021-flash-api.git" }
 panic_impl = { path = "crates/panic_impl" }
 
