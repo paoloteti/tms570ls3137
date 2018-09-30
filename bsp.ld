@@ -179,3 +179,5 @@ PROVIDE(_heap_start = _sheap);
 PROVIDE(_heapsize = __heap_size__);
 PROVIDE(_ram_start = ORIGIN(ram));
 PROVIDE(_ram_end = ORIGIN(ram) + LENGTH(ram));
+
+ASSERT(SIZEOF(.vim) == 128 * 4, "Wrong .vim section size");
