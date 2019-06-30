@@ -2,7 +2,6 @@
 #![feature(core_intrinsics)]
 #![feature(lang_items)]
 #![feature(naked_functions)]
-#![feature(alloc)]
 #![feature(allocator_api)]
 
 extern crate panic_impl;
