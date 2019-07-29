@@ -8,7 +8,7 @@ extern crate panic_impl;
 extern crate tms570;
 extern crate alloc;
 extern crate linked_list_allocator;
-use tms570::serial::{SerialLine, Parity, StopBits, DataBits};
+use tms570::serial::{SerialLine, Parity, StopBits, DataBits, Lines};
 use tms570::scilin::SciChipset;
 use tms570::gio::{Gio, GioPorts, GioDirection};
 use tms570::iomm::Iomm;
@@ -34,13 +34,13 @@ fn main() {
     unsafe {
         // Muxing pins is inherently unsafe
         let pmux = Iomm::new();
-        pmux.setup_pins(&[PinMux::Pin38_SCIRX, PinMux::Pin39_SCITX]);
+        pmux.setup_pins(&[PinMux::SCIRX, PinMux::SCITX]);
     }
 
     heap_init();
 
     let ioport = Gio::new();
-    let mut uart:SciChipset = SerialLine::new(0, DataBits::Eight,
+    let mut uart:SciChipset = SerialLine::new(Lines::Sci, DataBits::Eight,
                                               StopBits::One,
                                               Parity::None);
     uart.rx_enable(true)
